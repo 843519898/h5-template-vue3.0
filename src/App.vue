@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-index">
     <!-- <transition name="Skleft">
       <keep-alive>
         <router-view></router-view>
@@ -81,5 +81,10 @@ textarea {
 }
 .Skright-leave-to {
   transform: translate3d(-100%, 0, 0);
+}
+.page-index{
+  width: 100%;
+  height: 100vh;
+  background: rgb(243, 240, 240);
 }
 </style>

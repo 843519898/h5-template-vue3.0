@@ -1,21 +1,25 @@
 <template>
   <div>
-    <van-dropdown-menu>
-      <van-dropdown-item v-model="state.value1" :options="option1" />
-      <van-dropdown-item v-model="state.value2" :options="option2" />
-    </van-dropdown-menu>
-  <!--   <van-button type="primary" @click="goPage">动画</van-button>
+    <div class="page-content">
+      <van-dropdown-menu>
+        <van-dropdown-item v-model="state.value1" :options="option1" />
+        <van-dropdown-item v-model="state.value2" :options="option2" />
+      </van-dropdown-menu>
+      <!--   <van-button type="primary" @click="goPage">动画</van-button>
     <van-button type="success">成功按钮</van-button>
     <van-button type="default">默认按钮</van-button> -->
-    <van-cell title="状态管理" is-link to="home" />
-    <van-cell title="setup函数" is-link to="setup" />
-    <van-cell title="生命周期" is-link to="live" />
-    <van-cell title="路由跳转" is-link to="home" />
-    <van-cell title="路由跳转" is-link to="home" />
-
-    <!-- <transition name="fade">
-      <p v-if="state.show">hellsdsdsddsddo</p>
-    </transition> -->
+      <van-cell title="状态管理" is-link to="home" />
+      <van-cell title="setup函数" is-link to="setup" />
+      <van-cell title="生命周期" is-link to="live" />
+      <van-cell title="路由跳转" is-link to="home" />
+      <van-cell title="路由跳转" is-link to="home" />
+    </div>
+    <van-tabbar v-model="active">
+      <van-tabbar-item name="home" icon="home-o">标签</van-tabbar-item>
+      <van-tabbar-item name="search" icon="search">标签</van-tabbar-item>
+      <van-tabbar-item name="friends" icon="friends-o">标签</van-tabbar-item>
+      <van-tabbar-item name="setting" icon="setting-o">标签</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
@@ -28,12 +32,13 @@ export default {
     // onBeforeRouteUpdate((to) => {
     //   console.log(to, "=====");
     // });
+    const active = ref("home");
     let { ctx, proxy } = getCurrentInstance();
     const state = reactive({
       name: "",
       value1: 0,
       value2: "a",
-      show: true
+      show: true,
     });
     const option1 = [
       { text: "全部商品", value: 0 },
@@ -55,11 +60,9 @@ export default {
 
     const goPage = () => {
       console.log(ctx);
-      state.show = !state.show
+      state.show = !state.show;
       //ctx.$router.push({ name: "Home" });
     };
-
-    
 
     return {
       state,
@@ -67,6 +70,7 @@ export default {
       option2,
       goPage,
       ...getArticleAllFn(proxy),
+      active,
     };
   },
 };
@@ -87,12 +91,6 @@ function getArticleAllFn(proxy) {
 }
 </script>
 <style lang=scss scoped>
-.bac {
-  width: 185px;
-  height: 100px;
-  background: red;
-  font-size: 34px;
-}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;
@@ -101,5 +99,10 @@ function getArticleAllFn(proxy) {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.page-content {
+  width: 100%;
+  height: 100vh;
 }
 </style>

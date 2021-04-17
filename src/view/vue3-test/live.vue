@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {   reactive ,onBeforeMount,onMounted,onBeforeUpdate,
+import { reactive ,onBeforeMount,onMounted,onBeforeUpdate,
 onUpdated ,onBeforeUnmount,onUnmounted,onErrorCaptured,onRenderTracked,onRenderTriggered
 } from "vue";
 

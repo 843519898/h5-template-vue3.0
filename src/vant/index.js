@@ -1,4 +1,4 @@
-import { Button, Tabbar, TabbarItem,Toast, DropdownMenu, DropdownItem, Cell, CellGroup } from 'vant'
+import { Button, Tabbar, TabbarItem,Toast, DropdownMenu, DropdownItem, Cell, CellGroup, NavBar } from 'vant'
 const pluginsVant = [
     Button,
     Tabbar,
@@ -7,7 +7,8 @@ const pluginsVant = [
     DropdownMenu,
     DropdownItem,
     Cell,
-    CellGroup
+    CellGroup,
+    NavBar
 ]
 
 export const vantPlugins = {
